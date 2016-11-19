@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Efraín Lima Miranda - PFC 2014</title>
+
+		<meta name="description" content="Aplicación web para la visualización del Conocimiento del Centro Aeroespacial Alemán">
+		<meta name="author" content="Efraín Lima Miranda">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<style>
+			/* Title up */
+			.reveal .slides {
+			  height: 100% !important;
+			  top: 25px !important;
+			  margin-top: 25px !important;
+			}
+
+			.reveal .slides >section {
+			  min-height: 90% !important;
+			  top: 25px !important;
+			}
+
+			.reveal .slides >section>section {
+			  min-height: 100% !important;
+			  top: 25px !important;
+			}
+
+			.biblio {
+				margin: 0 0 0 0 !important; 
+			}
+			.biblio > li 
+			{
+				background: url('./images/books.png') no-repeat 7px 7px transparent;
+				list-style-type: none;
+				margin: 0;
+				padding: 00px 29px 19px 70px;
+				vertical-align: middle;
+			}
+			.left {
+				text-align: left !important;
+			}
+
+		</style>
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+
+			<aside class="logo" style="display: block;right: 0px;left: 0px;position: fixed;bottom: 10px;z-index: 40;">
+				<img height="60" src="./images/dlr_logo_small_title.png" alt="dlr">
+			</aside>
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section id="presentacion">
+					<div class="space" style="margin: 100px"></div>
+					<!--<h1>Reveal.js</h1> -->
+					<h2>Aplicación web para la visualización del Conocimiento del Centro Aeroespacial Alemán</h2>
+					<h2>(DLR)</h2>
+					<p>
+						<a href="mailto:efrain.limamiranda@alum.uca.es">Efraín Lima Miranda </a>
+					</p>
+					<p>
+						<small>Septiembre 2014</small>
+					</p>
+				</section>
+				<section id="indice">
+					<h2>Índice</h2>
+					<ol>
+						<li>Introducción</li>
+							<ul>
+								<li>Qué es el DLR</li>
+								<li>El Transporte y la Mobilidad en el DLR</li>
+								<!-- <ul>
+									<li>FW</li>
+									<li>VF</li>
+								</ul>
+								-->
+								<li>Situación de Partida</li>
+								<!--
+									<ul>
+										<li>El Proyecto KnowledgeFinder</li>
+										<li>El Portal STRADA@DLR</li>
+									</ul>
+								-->
+								<li>Objetivos del Proyecto</li>
+							</ul>
+						
+						<li>Solución Implementada</li>
+							<ul>
+								<li>Elección de la Visualización</li>
+								<li>Elección del Software</li>
+								<li>Elección de la Arquitectura</li>
+							</ul>
+						<!-- <li>La aplicación (demostración)</li> -->
+						<li>Conclusiones</li>
+						<li>Bibliografía Principal</li>
+					</ol>
+				</section>
+				<section>
+					<section id="dlr" > <!--data-background="./images/dlr_logo_small.png"> -->
+						<h2>Centor Aeroespacial Alemán (DLR)</h2>
+						<div class="left">
+							<p>
+								El DRL es una de las instituciones públicas más importantes 
+								dedicadas a la investigación en la República Federal Alemana.
+								<ul>
+									<li class="fragment">Oficinas centrales en Porz (Colonia)
+									<li class="fragment">15 delegaciones (32 institutos) en Alemania, 5 en el extrajero</li>
+									<li class="fragment">7.700 trabajores en plantilla</li>
+									<li class="fragment">Presupuesto de 157 millones de euros (año 2014)</li>
+									<li class="fragment">Aeronáutica - Espacio - Energía - Seguridad - Transporte</li>
+									<!-- <li class="fragment">Importancia de la Gestión del Conocimiento</li> -->
+								</ul>
+							</p>
+						</div>
+						
+						<aside class="notes">
+						<ul>
+							<li>Donde se ha realizado en proyecto</li>
+							<li>Proyecto Almería Termosolar - ESA </li>
+							<li>Estudiantes</li>
+							<li>Van y vienen</li>
+						</ul>
+						</aside>
+					</section>
+					<section id="transmov">
+						<h2>Transporte y la Movilidad en el DLR</h2>
+						<div style="text-align: left;">
+						<ul>
+							<li class="fragment">El transporte y su evolución es uno de sus temas de estudio.</li>
+							<li class="fragment">26 institutos colaboran con grandes conjuntos de datos estadístos y bases de datos.</li>
+							<li class="fragment">La gestión del conocimiento juega un papel clave.</li>
+						<div>
+						<aside class="notes">
+							<ul>
+								<li>Instituto de Conceptos de Vehículos (TS)</li>
+								<li>Instituto para las Técnicas de Transporte (FK)</li>
+								<li>Mucha información relacionada</li>
+								<li>Para este proyecto colaboran 2 institutos</li>
+							</ul>
+						</aside>
+					</section>
+					<section id="fw">
+						<h3>Instituto para la Investigación del Trasporte Aéreo y el Sistema Aeroportuario (FW)</h3>
+						<p>Dedicado a la investigación de la evolución del tráfico aéreo y de los sistemas aeroportuarios a lo largo del tiempo</p>
+<p>
+<a href="http://monitorportal.dlr.de/" target="_blank">MONITOR-Portal</a>
+</p>
+<p>
+						<a href="#" class="image navigate-down">
+							<img width="320" height="38" src="./images/monitor-logo-white.png" alt="monitor">
+						</a>
+</p>
+					<aside class="notes">
+							<ul>
+								<li>Tráfico aéreo y aeropuertos</li>
+							</ul>
+						</aside>
+					</section>
+					<section id="vf">
+						<h3>Instituto para la Investigación del Transporte (VF)</h3>
+						<!-- <p>Proveedor oficial de encuestas relacionadas con el transporte público y la movilidad</p> -->
+						<p>Investiga los avances y perspectivas del transporte de pasajeros y comercial para conseguir en el futuro un sistema de transporte moderno, eficiente y sostenible para las personas y el medio ambiente.</p>
+<p>
+<a href="http://daten.clearingstelle-verkehr.de/" target="_blank">Clearingstellen Verkehr</a>
+</p>
+<p>
+						<a href="#" class="image navigate-down">
+							<img width="320" src="./images/clearingstelle-logo.png" alt="clearingstelle">
+						</a>
+</p>
+						<aside class="notes">
+							<ul>
+								<li>Transporte de pasajeros y comercial</li>
+								<li>Proveedor encuestas Alemania</li>
+							</ul>
+						</aside>
+					</section>
+					<section id="strada">
+						<h2>STRADA@DLR</h2>
+						<p>Portal unificado que engloba los datos provenientes de "Clearingstellen Verkehr" y "MONITOR-Portal"
+							<a href="#" class="image navigate-down">
+								<img width="70%" src="./images/strada-aproach.png" alt="strada">
+							</a>
+						</p>
+						<aside class="notes">
+							<ul>
+								<li>Strada > KF</li>
+								<li>Reto estudio datos, unificación de portales</li>
+								<li>Fase de pruebas</li>
+							</ul>
+						</aside>
+					</section>
+
+					<section id="kf1">
+						<h2>KnowledgeFinder (2010-2013)</h2>
+						<p style="text-align: left;">
+						Framework de búsqueda para portales del conocimiento cuya finalidad
+						principal es la recuperación de la información y del concimiento 
+						de una forma simple e intuitiva.
+						</p>
+						<aside class="notes">
+							<ul>
+								<li>Monitor > KF</li>
+							</ul>
+						</aside>
+					</section>
+					
+					<section id="actual">
+						<h2>Situación de Partida</h2>
+						<ul>
+							<li class="fragment">
+								Sólo es posible una fuente de datos
+							</li>
+							<li class="fragment">
+								Interfaz de usuario y búsqueda sólo centrada en el texto
+							</li>
+							<li class="fragment">
+								Implementado usando Vaadin 6
+							</li>
+							<li class="fragment">
+								Índice de búsqueda Lucene 3.0.2
+							</li>
+							<li class="fragment">
+								Portal Liferay 6.1.1
+							</li>
+							<li class="fragment">
+								Configuración a nivel de código
+							</li>
+						</ul>
+						<aside class="notes">
+							<ul>
+								<li>SVN remoto y local</li>
+								<li>Sin testear</li>
+								<li>Vaadin antiguo Marzo 2014</li>
+								<li>Dificil mantenimiento</li>
+								<li>Sin estructura clara (aprox 20 paquetes)</li>
+							</ul>
+						</aside>
+					</section>
+
+					<section id="kf2">
+						<h2>KnowledgeFinder II</h2>
+						<div style="text-align: left;">
+							<!-- Aquí se puede poner algo -->
+							<ul>
+								<li class="fragment">
+									Mejora de la visualización conocimiento y de las estructuras y relaciones de los datos
+								</li>
+								<li class="fragment">
+									Participación de nuevas fuentes de datos en el DLR relacionadas con el "Transporte y la Movilidad"
+								</li>
+							</ul>
+						</div>
+						<aside class="notes">
+							<ul>
+								<li>Proyecto fase piloto</li>
+								<li>Mio ejemplo: KF2 > STRADA</li>
+							</ul>
+						</aside>
+					</section>
+				</section>
+
+<!-- FIN Introducción -->
+				<section>
+					<section id="electvisual">
+						<h2>Elección de la Visualización</h2>
+						<p>Buscar la estructura visual que represente con más fidelidad el conocimiento y las 
+							estructuras complejas y que sea intuitivo para el usuario.
+						</p>
+						<aside class="notes">
+							<ul>
+								<li>Representación metadatos</li>
+								<li>Facil para usuario</li>
+								<li>Interactivo</li>
+							</ul>
+						</aside>
+					</section>
+					<section id="chord">
+						<h2>Chord Diagram</h2>
+<iframe src="./iframes/chord/index.html" marginwidth="0" marginheight="0" scrolling="no" style="height: 500px; width: 1000px"></iframe>
+					</section>
+					<section id="bubble">
+						<h2>Bubble Chart</h2>
+<iframe src="./iframes/bubble/index.html" marginwidth="0" marginheight="0" scrolling="no" style="height: 500px; width: 1000px"></iframe>
+					</section>
+					<section id="circle">
+						<h2>Circle Packing</h2>
+<iframe src="./iframes/circle/index.html" marginwidth="0" marginheight="0" scrolling="no" style="height: 500px; width: 1000px"></iframe>
+					</section>
+					<section id="layout">
+						<h2>Grafo - Force Layout</h2>
+<iframe src="./iframes/layout/index.html" marginwidth="0" marginheight="0" scrolling="no" style="height: 500px; width: 1000px"></iframe>
+						<aside class="notes">
+							<ul>
+								<li>Junto con los institutos</li>
+								<li>Elegida: clara e intuitiiva</li>
+							</ul>
+						</aside>
+					</section>
+				</section>
+
+				<section id="electsoft">
+					<section id="techvisual">
+						<h2>Tecnología de Visualización</h2>
+						<h3 class="fragmentx">D3.js (Data-Driven Documents)</h3>
+						<ul>
+							<li class="fragment">
+								Biblioteca Open Source de JavaScript para la manipulación de documentos basados en datos (HTML5).
+							</li>
+							<li class="fragment">
+								Claridad y calidad del código. Extensa documentación y ejemplos ilustrativos.
+							</li>
+							<li class="fragment">
+								Facilidad de adaptación a las actuales y futuras necesidades específicas de KnowledgeFinder II.
+							</li>
+						</ul>
+						<aside class="notes">
+							<ul>
+								<li>Por ejemplo siguiente</li>
+							</ul>
+						</aside>
+					</section>
+					<section id="d3leaf">
+						<h2>Leaflet con D3.js</h2>
+<iframe src="./iframes/maps/index.html" marginwidth="0" marginheight="0" scrolling="no" style="height: 500px; width: 1000px"></iframe>
+						<aside class="notes">
+							<ul>
+								<li>Ejemplo mapas</li>
+								<li>Indicado como futuro Geo-localización</li>
+							</ul>
+						</aside>
+					</section>
+
+					<section id="electindex">
+						<h2>Índice de Búsqueda</h2>
+						<h3 class="fragmentx">Apache Solr 4.8</h3>
+						<ul>
+							<li class="fragment">
+								Unificación de Lucene y Solr en marzo de 2010.
+							</li>
+							<li class="fragment">
+								Configuración basada en ficheros XML.
+							</li>
+							<li class="fragment">
+								Opciones más potentes de búsqueda.
+							</li>
+							<li class="fragment">
+								Optimizado para gran volumen de peticiones.
+							</li>
+						</ul>
+						<aside class="notes">
+							<ul>
+								<li>CONFLICTO Departamento</li>
+								<li>Reimplementar Indexación y búsquedas</li>
+							</ul>
+						</aside>
+					</section>
+
+					<section id="electapp">
+						<h2>Tipo de Aplicación</h2>
+						<h3 class="fragmentx">Modelo Vista Controlador (MVC)</h3>
+						<ul>
+						<li class="fragment">
+							Costosa y necesaria actualización de Vaadin 6 → 7
+						</li>
+						<li class="fragment">
+							Difícil incorporación de los elementos de D3.js en Vaadin.
+						</li>
+						<li class="fragment">
+							Flexibilidad de MVC
+						</li>
+						<li class="fragment">
+							D3.js y los recursos externos (JSON, XML, CSV, ...)
+						</li>
+						<li class="fragment">
+							Liferay: los servicios webs y los usuarios
+						</li>
+						<aside class="notes">
+							<ul>
+								<li>Aplicación Enriquecida de Internet - COMPONENTES</li>
+								<li>PARTES MVC</li>
+								<li>CONFLICTO Departamento</li>
+								<li>Vaadin + Google Web Toolkit!</li>
+								<li>La mejor opción</li>
+								<li>Reimplementar TODO</li>
+							</ul>
+						</aside>
+					</section>
+					<section id="arquitectura">
+						<h2>Arquitectura</h2>
+						<a href="#" class="image navigate-down">
+							<img width="80%" src="./images/Despliegue.png" alt="despliegue" style="background: white;">
+						</a>
+					</section>
+				</section>
+
+					<section id="planificacion">
+						<h2>Planificación</h2>
+						<p class="center">
+							Inicial
+							<a href="#" class="image">
+								<img width="100%" src="./images/gantt-inicial.png" alt="gantt inicial" style="max-width: 100%">
+							</a>
+						</p>
+						<p>
+						Replanteada
+						<a href="#" class="image navigate-down">
+							<img width="100%" src="./images/gantt-replanteamiento.png" alt="gantt replanteamiento" style="max-width: 100%">
+						</a>
+						</p>
+						<aside class="notes">
+							<ul>
+								<li>de 6 meses a aprox 11 meses</li>
+							</ul>
+						</aside>
+					</section>
+
+				<section id="epilogo">
+					<section id="objectivosalca1">
+						<h2>Objetivos Alcanzados (1)</h2>
+						<div class="left">
+							<h3>Visualización del Conocimiento</h3>
+							<ul>
+								<li class="fragment">Interfaz de usuario intuitiva, dinámica e interactiva donde se
+									representan las estructuras de datos complejas del conocimiento.
+								</li>
+								<li class="fragment">La visualización aparece como el elemento principal de la búsqueda pero sin
+									menospreciar las posibilidades a través del menú y búsqueda de texto.
+								</li>
+								<li class="fragment">Todos los componentes de la
+									interfaz interactúan entre ellos y proporciona al usuario información instantánea de las
+									relaciones y estructuras de los documentos.
+								</li>
+							</ul>
+						</div>
+						<aside class="notes">
+							<ul>
+								<li>Intuitiva, dinámica e interactiva</li>
+								<li>Visual + Text</li>
+							</ul>
+						</aside>
+					</section>
+					<section id="objectivosalca2">
+						<h2>Objetivos Alcanzados (2)</h2>
+						<div class="left">
+							<h3>Adaptación a nuevas Fuentes de Datos</h3>
+							<ul>
+								<li class="fragment">Incorporación de nuevas fuentes de datos (locales y remotas) al índice de búsqueda 
+														simplemente modificando la configuración.
+								</li>
+								<li class="fragment">Resto de la aplicación adaptable a través de ficheros de configuración.
+								</li>
+							</ul>
+						</div>
+					</section>
+					<section id="mejoraskf2">
+						<h2>Mejoras Transversales</h2>
+						<ul>
+							<li class="fragment"><b>Mejora del código</b>: de 424 ficheros (Java) y 67.565 líneas de código 
+												a 89 ficheros de código (Java, JavaScript, Sass) y 11.856 líneas de código.</li>
+							<li class="fragment"><b>Mejora del Rendimiento</b>: Importación de 25 minutos a 30 segundos. 
+												Mejor respuesta de la interfaz de usuario.
+							</li>
+							<li class="fragment"><b>Sistema más flexible</b>: Gracias al MVC, el sistema es más adaptable a posibles 
+												cambios.
+							</li>
+						</ul>
+					</section>
+					<section id="lecciones">
+						<h2>Lecciones Aprendidas</h2>
+						<ul>
+							<li class="fragment">Gran experiencia en el DLR</li>
+							<li class="fragment">La burocracia; enemiga y amiga</li>
+							<li class="fragment">Buenos razomanientos ayudan a convencer</li>
+							<li class="fragment">Solr - JavaScript (D3.js) - HMTL5 - Sass</li>
+						</ul>
+					</section>
+					<section id="futuro">
+						<h2>Trabajo futuro</h2>
+						<ul>
+							<li class="fragment">Importación de nuevas fuentes de datos</li>
+							<li class="fragment">Importación de otros formatos (XML, CSV, ...)</li>
+							<li class="fragment">Adaptación a nuevos tipos de datos</li>
+							<li class="fragment">Nuevos componentes para la visualización</li>
+							<li class="fragment">Búsqueda semántica</li>
+							<li class="fragment">Linked Data</li>
+						</ul>
+						<aside class="notes">
+							<ul>
+								<li>Fuentes de datos van cambiando</li>
+							</ul>
+						</aside>
+					</section>
+				</section>
+				<section id="bibliografia" style="top: 0.5px; display: block;">
+					<h2>Bibliografía Principal</h2>
+					<div style="text-align: left;">
+						<ul class="biblio" >
+							<li>Dr. Peter Hruschka Dr. Gernot Starke. Softwarearchitektur arc42, (2014)</li>
+							<li>DLR Institute for Transport Research. Using Dublin Core Standard for the metadata
+								description of transport statistics (2013)</li>
+							<li>Institut für Flughafenwesen und Luftverkehr (FW). http://www.dlr.de/fw/, (2014)</li>
+							<li>Institut für Verkehrsforschung (VF). http://www.dlr.de/vf/, (2014)</li>
+							<li>Magnus Penker, Hans-Erik Eriksson. Business modeling with uml : Business
+patterns at work, (2000)</li>
+						</ul>
+					</div>
+				</section>
+				<section id="fin">
+					<div class="space" style="margin: 100px"></div>
+					<h2>Gracias por la atención</h2>
+					<p>
+						<!-- <h3>Preguntas</h3> -->
+					</p>
+				</section>
+			</div>
+		</div>
+
+
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				slideNumber: true,
+				history: true,
+				previewLinks: true,
+
+				width: 960,
+				height: 700,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
