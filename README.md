@@ -9,4 +9,6 @@ https://github.com/efrain70/DLR-KnowledgeFinderII-Documentation
 
 ## Main page of KnowledgeFinderII project
 Further information about the KnowledgeFinderII project can be found in
-https://github.com/KnowledgeFinder
+https://knowledgefinder.github.io/ and its repositories
+https://github.com/KnowledgeFinder/
+
